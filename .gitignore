@@ -1,0 +1,47 @@
+# https://www.gitignore.io/api/laravel
+
+# Environment vars
+.env
+.env.bak
+.env.backup
+
+# Log files and databases
+*.log
+*.sql
+*.sqlite
+
+# Backups
+*.bak
+*.orig
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# OS generated files
+ehthumbs.db
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor files
+*.sublime-*
+/.idea
+/.vscode

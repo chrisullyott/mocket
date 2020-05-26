@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# Load environment variables
+SRV_NAME="php"
+ENV_PATH="src/.env"
+if [ -f $ENV_PATH ]; then
+    source $ENV_PATH
+else
+    echo ".env file not found"
+    exit 1
+fi
+
+# Handle commands with arguments
+if [ $# -gt 0 ]; then
+    CMD="docker-compose exec ${SRV_NAME}"
+    ART="${CMD} php ./artisan"
+
+    # Build the environment
+    if [ "$1" == "b" ] || [ "$1" == "build" ]; then
+        echo "Building.";
+        cp $ENV_PATH .env
+        docker-compose build && docker-compose up -d
+
+    # Start the environment
+    elif [ "$1" == "u" ] || [ "$1" == "up" ]; then
+        echo "Starting up."
+        docker-compose up -d
+
+    # Take down the environment
+    elif [ "$1" == "d" ] || [ "$1" == "down" ]; then
+        echo "Shutting down."
+        docker-compose down --remove-orphans
+
+    # Install the application
+    elif [ "$1" == "i" ] || [ "$1" == "install" ]; then
+        echo "Running migrations."
+        $ART migrate
+        echo "Seeding database."
+        $ART db:seed
+
+    # Log into the container
+    elif [ "$1" == "s" ] || [ "$1" == "sh" ]; then
+        $CMD /bin/sh
+
+    # Run Laravel Artisan
+    elif [ "$1" == "art" ] || [ "$1" == "artisan" ]; then
+        shift 1
+        $ART "$@"
+
+    # Run unit tests
+    elif [ "$1" == "test" ] || [ "$1" == "phpunit" ]; then
+        shift 1
+        $CMD ./vendor/bin/phpunit "$@"
+
+    # Stop and delete all containers (are you sure?)
+    elif [ "$1" == "removeall" ]; then
+        docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
+
+    # Run inside the container
+    else
+        $CMD "$@"
+    fi
+
+else
+    # Without arguments, list running containers
+    docker ps
+fi
