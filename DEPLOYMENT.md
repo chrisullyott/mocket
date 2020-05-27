@@ -81,8 +81,8 @@ group = nginx
 ```
 $ sudo su root
 $ php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
-$ mkdir -p /ec2-user/.composer
-$ chmod -R ugo+rw /ec2-user/.composer
+$ mkdir -p /root/.composer
+$ chmod -R ugo+rw /root/.composer
 ```
 
 ## Add services to the boot sequence
