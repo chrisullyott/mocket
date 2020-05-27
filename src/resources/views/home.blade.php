@@ -14,7 +14,7 @@
                     $subTitle = '';
                 }
                 ?>
-                <div class="card-header">Saved Items<?=$subTitle?></div>
+                <div class="card-header">Saved Items{{ $subTitle }}</div>
 
                 <div class="card-body">
 
