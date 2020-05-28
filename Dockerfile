@@ -5,7 +5,7 @@ WORKDIR /var/www/html
 
 # Install Alpine packages
 RUN apk update && \
-    apk add nano openrc curl npm nodejs
+    apk add nano openrc curl
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql
@@ -16,4 +16,5 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
     chmod -R ugo+rw /root/.composer
 
 # Install NPM
+RUN apk add npm nodejs
 RUN npm install
