@@ -47,8 +47,7 @@ class ItemController extends Controller
     public function patch(int $id, Request $request)
     {
         $item = Item::findOrFail($id);
-        $input = $request->all();
-        $item->update($input);
+        $item->update($request->all());
 
         return redirect()->back();
     }
