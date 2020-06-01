@@ -10,13 +10,6 @@ use App\Item;
 class HomeController extends Controller
 {
     /**
-     * How many items to show per page.
-     *
-     * @var int
-     */
-    private static $perPage = 5;
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -33,30 +26,48 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        $page = $request->input('page');
+        $host = $request->input('host');
+        $favs = $request->input('favorites');
+
         $items = Item::where('user_id', Auth::id())
                 ->orderBy('created_at', 'DESC');
 
-        // Filter by favorites.
-        if ($request->favorites) {
-            $items->where('is_favorite', $request->favorites);
-        }
-
-        // Filter by host.
-        if ($host = $request->host) {
+        if ($host) {
             $items->whereHas('meta', function($query) use ($host) {
                 $query->where('host', $host);
             });
         }
 
-        // Fetch.
-        $result = $items->paginate(static::$perPage);
+        if ($favs) {
+            $items->where('is_favorite', $favs);
+        }
 
-        // Redirect if empty.
+        $result = $items->paginate(10);
+
         if ($result->isEmpty()) {
-            $filtered = $request->favorites || $request->host || $request->page;
+            $filtered = $page || $host || $favs;
             return $filtered ? redirect()->route('home') : redirect()->route('add');
         }
 
-        return view('home', ['items' => $result]);
+        $subTitle = static::subTitle($host, $favs);
+
+        return view('home', ['subTitle' => $subTitle, 'items' => $result]);
+    }
+
+    /**
+     * Build a subtitle for this page.
+     *
+     * @return string
+     */
+    protected static function subTitle($host = null, $favorites = null)
+    {
+        if ($host) {
+            return ' : Filtered';
+        } elseif ($favorites) {
+            return ' : Favorites';
+        }
+
+        return '';
     }
 }
