@@ -10,6 +10,13 @@ use App\Item;
 class HomeController extends Controller
 {
     /**
+     * How many items to show per page.
+     *
+     * @var int
+     */
+    private static $perPage = 5;
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -27,8 +34,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $items = Item::where('user_id', Auth::id())
-                ->orderBy('created_at', 'DESC')
-                ->limit(10);
+                ->orderBy('created_at', 'DESC');
 
         // Filter by favorites.
         if ($request->favorites) {
@@ -43,13 +49,12 @@ class HomeController extends Controller
         }
 
         // Fetch.
-        $result = $items->get();
+        $result = $items->paginate(static::$perPage);
 
         // Redirect if empty.
-        if ($result->isEmpty() && ($favorites || $host)) {
-            return redirect()->route('home');
-        } elseif ($result->isEmpty()) {
-            return redirect()->route('add');
+        if ($result->isEmpty()) {
+            $filtered = $request->favorites || $request->host || $request->page;
+            return $filtered ? redirect()->route('home') : redirect()->route('add');
         }
 
         return view('home', ['items' => $result]);
