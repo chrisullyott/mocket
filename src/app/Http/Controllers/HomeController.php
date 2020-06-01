@@ -31,12 +31,12 @@ class HomeController extends Controller
                 ->limit(10);
 
         // Filter by favorites.
-        if ($favorites = $request->input('favorites')) {
-            $items->where('is_favorite', $favorites);
+        if ($request->favorites) {
+            $items->where('is_favorite', $request->favorites);
         }
 
         // Filter by host.
-        if ($host = $request->input('host')) {
+        if ($host = $request->host) {
             $items->whereHas('meta', function($query) use ($host) {
                 $query->where('host', $host);
             });
