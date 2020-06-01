@@ -13,17 +13,20 @@ class ItemSeeder extends Seeder
     public function run()
     {
         $urls = [
-            'http://troels.arvin.dk/db/rdbms/',
             'https://blog.mint.com/how-to/identity-theft-protection/',
-            'https://www.youtube.com/watch?v=tVooja0Ta5I'
+            'http://troels.arvin.dk/db/rdbms/',
+            'https://goinswriter.com/remarkable/',
+            'https://www.youtube.com/watch?v=tVooja0Ta5I',
+            'https://michaelhyatt.com/how-to-beat-a-burnout-culture/',
+            'https://www.ted.com/talks/sascha_morrell_why_should_you_read_moby_dick',
             'https://laracasts.com/podcast/318183',
             'https://www.youtube.com/watch?v=WPoQfKQlOjg',
             'https://laracasts.com/series/testing-vue/episodes/2',
             'https://www.codeforamerica.org/work',
+            'https://vuejs.org/v2/guide/',
             'http://chrisullyott.com/help-the-amazon-rainforest',
             'https://www.ted.com/talks/brene_brown_the_power_of_vulnerability',
-            'https://www.youtube.com/watch?v=IS62jMJDzgg#t=42m18s',
-
+            'https://www.youtube.com/watch?v=IS62jMJDzgg#t=42m18s'
         ];
 
         // Turn on mass-assignment protection.
