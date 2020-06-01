@@ -24,9 +24,9 @@ class ItemSeeder extends Seeder
             'https://laracasts.com/series/testing-vue/episodes/2',
             'https://www.codeforamerica.org/work',
             'https://vuejs.org/v2/guide/',
-            'http://chrisullyott.com/help-the-amazon-rainforest',
+            'https://www.youtube.com/watch?v=IS62jMJDzgg#t=42m18s',
             'https://www.ted.com/talks/brene_brown_the_power_of_vulnerability',
-            'https://www.youtube.com/watch?v=IS62jMJDzgg#t=42m18s'
+            'http://chrisullyott.com/help-the-amazon-rainforest'
         ];
 
         // Turn on mass-assignment protection.
