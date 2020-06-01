@@ -19,7 +19,9 @@ if [ $# -gt 0 ]; then
     if [ "$1" == "b" ] || [ "$1" == "build" ]; then
         echo "Building.";
         cp $ENV_PATH .env
-        docker-compose build && docker-compose up -d
+        docker-compose build
+        echo "Starting up."
+        docker-compose up -d
 
     # Start the environment
     elif [ "$1" == "u" ] || [ "$1" == "up" ]; then
