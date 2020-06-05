@@ -2,6 +2,8 @@
 
 A mock of the "Pocket" app, made with Laravel.
 
+![image](image.png)
+
 ## Local installation (Docker)
 
 1. Install PHP with Homebrew (to ensure proper extensions are included).
