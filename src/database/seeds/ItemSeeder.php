@@ -16,13 +16,13 @@ class ItemSeeder extends Seeder
             'https://blog.mint.com/how-to/identity-theft-protection/',
             'https://goinswriter.com/remarkable/',
             'https://www.youtube.com/watch?v=tVooja0Ta5I',
-            'https://michaelhyatt.com/how-to-beat-a-burnout-culture/',
             'https://laracasts.com/podcast/318183',
+            'https://michaelhyatt.com/how-to-beat-a-burnout-culture/',
             'https://www.youtube.com/watch?v=WPoQfKQlOjg',
-            'https://www.codeforamerica.org/work',
             'https://www.youtube.com/watch?v=IS62jMJDzgg#t=42m18s',
-            'https://www.ted.com/talks/brene_brown_the_power_of_vulnerability',
-            'http://chrisullyott.com/help-the-amazon-rainforest'
+            'https://www.codeforamerica.org/work',
+            'http://chrisullyott.com/help-the-amazon-rainforest',
+            'https://www.ted.com/talks/brene_brown_the_power_of_vulnerability'
         ];
 
         // Turn on mass-assignment protection.
