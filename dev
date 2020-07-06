@@ -50,7 +50,8 @@ if [ $# -gt 0 ]; then
         $ART "$@"
 
     # Run unit tests
-    elif [ "$1" == "test" ] || [ "$1" == "phpunit" ]; then
+    elif [ "$1" == "t" ] || [ "$1" == "test" ] || [ "$1" == "phpunit" ]; then
+        clear
         shift 1
         $CMD ./vendor/bin/phpunit "$@"
 

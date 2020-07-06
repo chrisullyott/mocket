@@ -40,13 +40,13 @@ Run Laravel Artisan in the container with:
 Run unit tests with:
 
 ```
-./dev test
+./dev t
 ```
 
 Log into the container with:
 
 ```
-./dev sh
+./dev s
 ```
 
 ## Resources for Docker and Laravel
