@@ -12,6 +12,16 @@ class ItemTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Data for a test item.
+     *
+     * @var array
+     */
+    private static $itemData = [
+        'user_id' => 1,
+        'url' => 'https://laravel.com/docs/7.x'
+    ];
+
+    /**
      * Run test setup.
      */
     protected function setUp(): void
@@ -26,8 +36,7 @@ class ItemTest extends TestCase
      */
     public function item_can_be_added(): void
     {
-        $url = 'https://laravel.com/docs/7.x';
-        $item = Item::create(['user_id' => 1, 'url' => $url]);
+        $item = Item::create(static::$itemData);
 
         $this->assertTrue($item->exists);
     }
@@ -38,8 +47,7 @@ class ItemTest extends TestCase
      */
     public function item_can_be_deleted(): void
     {
-        $url = 'https://laravel.com/docs/7.x';
-        $item = Item::create(['user_id' => 1, 'url' => $url]);
+        $item = Item::create(static::$itemData);
         $item->delete();
 
         $this->assertDatabaseMissing('items', ['id' => $item->id]);
