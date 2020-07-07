@@ -31,6 +31,17 @@ class Item extends Model
     }
 
     /**
+     * Delete this model and the child models.
+     *
+     * @return void
+     */
+    public function delete()
+    {
+        $this->meta->delete();
+        parent::delete();
+    }
+
+    /**
      * Create a new Item from data.
      *
      * @return Item

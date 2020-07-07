@@ -32,4 +32,18 @@ class ItemTest extends TestCase
 
         $this->assertTrue($item->exists);
     }
+
+    /**
+     * An item can be deleted from the database.
+     *
+     * @return void
+     */
+    public function testAnItemCanBeDeleted(): void
+    {
+        $url = 'https://laravel.com/docs/7.x';
+        $item = Item::create(['user_id' => 1, 'url' => $url]);
+        $item->delete();
+
+        $this->assertDatabaseMissing('items', ['id' => $item->id]);
+    }
 }

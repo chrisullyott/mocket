@@ -58,7 +58,6 @@ class ItemController extends Controller
     public function delete(int $id)
     {
         $item = Item::findOrFail($id);
-        $item->meta()->delete();
         $item->delete();
 
         return redirect()->route('home');
