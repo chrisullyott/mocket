@@ -49,11 +49,17 @@ if [ $# -gt 0 ]; then
         shift 1
         $ART "$@"
 
-    # Run unit tests
+    # Run PHPUnit
     elif [ "$1" == "t" ] || [ "$1" == "test" ] || [ "$1" == "phpunit" ]; then
         clear
         shift 1
         $CMD ./vendor/bin/phpunit "$@"
+
+     # Run PHPUnit-Watcher
+    elif [ "$1" == "w" ] || [ "$1" == "watch" ]; then
+        clear
+        shift 1
+        $CMD ./vendor/bin/phpunit-watcher watch "$@"
 
     # Stop and delete all containers (are you sure?)
     elif [ "$1" == "removeall" ]; then
