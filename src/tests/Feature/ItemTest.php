@@ -42,6 +42,18 @@ class ItemTest extends TestCase
     }
 
     /**
+     * @test An item can be updated.
+     * @return void
+     */
+    public function item_can_be_updated(): void
+    {
+        $item = Item::create(static::$itemData);
+        $item->update(['is_favorite' => true]);
+
+        $this->assertDatabaseHas('items', ['id' => $item->id, 'is_favorite' => '1']);
+    }
+
+    /**
      * @test An item can be deleted from the database.
      * @return void
      */
