@@ -25,7 +25,7 @@ class ItemTest extends TestCase
      *
      * @return void
      */
-    public function testAnItemCanBeAdded(): void
+    public function item_can_be_added(): void
     {
         $url = 'https://laravel.com/docs/7.x';
         $item = Item::create(['user_id' => 1, 'url' => $url]);
@@ -38,7 +38,7 @@ class ItemTest extends TestCase
      *
      * @return void
      */
-    public function testAnItemCanBeDeleted(): void
+    public function item_can_be_deleted(): void
     {
         $url = 'https://laravel.com/docs/7.x';
         $item = Item::create(['user_id' => 1, 'url' => $url]);
