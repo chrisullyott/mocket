@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Item;
 use UserSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ItemTest extends TestCase
 {
@@ -27,6 +27,7 @@ class ItemTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->seed(UserSeeder::class);
     }
 
