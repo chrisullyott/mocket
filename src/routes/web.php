@@ -21,5 +21,6 @@ Route::get('/', 'HomeController@index')->name('home');
 // Items
 Route::get('/item', 'ItemController@index')->name('add');
 Route::post('/item', 'ItemController@create');
+Route::get('/item/{id}', 'ItemController@read')->name('read');
 Route::patch('/item/{id}', 'ItemController@patch');
 Route::delete('/item/{id}', 'ItemController@delete');

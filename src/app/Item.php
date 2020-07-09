@@ -31,6 +31,14 @@ class Item extends Model
     }
 
     /**
+     * Get this item's routable path.
+     */
+    public function path()
+    {
+        return "/item/{$this->id}";
+    }
+
+    /**
      * Delete this model and the child models.
      *
      * @return void

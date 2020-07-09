@@ -2,7 +2,7 @@
 
     <!-- First column -->
     <div class="col-md-3">
-        <a href="{{ $item->url }}" target="_blank">
+        <a href="{{ $item->path() }}">
             <figure class="figure">
             @if ($item->meta->image_url)
                 <img src="{{ $item->meta->image_url }}" class="figure-img img-fluid rounded" alt="thumbnail">
@@ -15,7 +15,7 @@
 
     <!-- Second column -->
     <div class="col-md-6">
-        <p class="title"><a href="{{ $item->url }}" target="_blank">{{ $item->meta->title }}</a></p>
+        <p class="title"><a href="{{ $item->path() }}">{{ $item->meta->title }}</a></p>
         @if($item->meta->description)
             <p class="description"><em>{{ $item->meta->short_host }}</em> &mdash; {{ $item->meta->description }}</p>
         @else

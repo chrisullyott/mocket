@@ -42,6 +42,16 @@ class ItemController extends Controller
     }
 
     /**
+     * Read a single item.
+     */
+    public function read(int $id, Request $request)
+    {
+        $item = Item::findOrFail($id);
+
+        return view('read', ['item' => $item]);
+    }
+
+    /**
      * Update a given item.
      */
     public function patch(int $id, Request $request)
