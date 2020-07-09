@@ -33,7 +33,6 @@ class ItemTest extends TestCase
 
     /**
      * @test An item can be added to the database.
-     * @return void
      */
     public function item_can_be_added(): void
     {
@@ -44,7 +43,6 @@ class ItemTest extends TestCase
 
     /**
      * @test An item can be updated.
-     * @return void
      */
     public function item_can_be_updated(): void
     {
@@ -56,7 +54,6 @@ class ItemTest extends TestCase
 
     /**
      * @test An item can be deleted from the database.
-     * @return void
      */
     public function item_can_be_deleted(): void
     {

@@ -23,7 +23,6 @@ class LoginTest extends TestCase
 
     /**
      * @test A user is redirected to the login screen.
-     * @return void
      */
     public function user_is_redirected_to_login(): void
     {
@@ -34,7 +33,6 @@ class LoginTest extends TestCase
 
     /**
      * @test An existing user can log in and is taken to the home screen.
-     * @return void
      */
     public function existing_user_can_log_in(): void
     {
