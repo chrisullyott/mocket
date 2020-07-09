@@ -3,9 +3,9 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use App\UrlDataProvider;
+use App\ItemDataProvider;
 
-class UrlDataProviderTest extends TestCase
+class ItemDataProviderTest extends TestCase
 {
     /**
      * A URL to test.
@@ -39,7 +39,7 @@ class UrlDataProviderTest extends TestCase
      */
     public function data_is_provided(): void
     {
-        $provider = new UrlDataProvider(static::$url);
+        $provider = new ItemDataProvider(static::$url);
         $data = $provider->getData();
 
         foreach (static::$requiredProps as $prop) {

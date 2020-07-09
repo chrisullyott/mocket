@@ -5,7 +5,7 @@ namespace App;
 use Tomaj\Scraper\Scraper;
 use Tomaj\Scraper\Parser\OgParser;
 
-class UrlDataProvider
+class ItemDataProvider
 {
     /**
      * The URL we will get data for.

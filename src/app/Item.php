@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\ItemMeta;
-use App\UrlDataProvider;
+use App\ItemDataProvider;
 
 class Item extends Model
 {
@@ -61,7 +61,7 @@ class Item extends Model
 
         // Create ItemMeta.
         $meta = new ItemMeta();
-        $provider = new UrlDataProvider($item->url);
+        $provider = new ItemDataProvider($item->url);
         $meta->fill($provider->getData());
         $item->meta()->save($meta);
 
