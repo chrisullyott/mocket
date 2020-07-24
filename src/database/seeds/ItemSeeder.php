@@ -15,11 +15,8 @@ class ItemSeeder extends Seeder
         $urls = [
             'https://blog.mint.com/how-to/identity-theft-protection/',
             'https://goinswriter.com/remarkable/',
-            'https://www.youtube.com/watch?v=tVooja0Ta5I',
-            'https://laracasts.com/podcast/318183',
             'https://michaelhyatt.com/how-to-beat-a-burnout-culture/',
             'https://www.youtube.com/watch?v=WPoQfKQlOjg',
-            'https://www.youtube.com/watch?v=IS62jMJDzgg#t=42m18s',
             'https://www.codeforamerica.org/work',
             'http://chrisullyott.com/help-the-amazon-rainforest',
             'https://www.ted.com/talks/brene_brown_the_power_of_vulnerability'
