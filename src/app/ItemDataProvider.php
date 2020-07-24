@@ -128,7 +128,7 @@ class ItemDataProvider
 
         // Image.
         $d['image_url'] = $a->getTopImage() ? $a->getTopImage()->getImageSrc() : '';
-        if (!$d['image_url'] && !empty($m['image_url'])) $d['image_url'] = $m['image'];
+        if (!$d['image_url'] && !empty($m['image'])) $d['image_url'] = $m['image'];
 
         return $d;
     }
