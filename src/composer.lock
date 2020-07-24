@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9924b78f64e9470eb761360da7b6254d",
+    "content-hash": "fa50e709da4a5542c594d4a263245b7b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -726,6 +726,39 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "jakeasmith/http_build_url",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakeasmith/http_build_url.git",
+                "reference": "93c273e77cb1edead0cf8bcf8cd2003428e74e37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakeasmith/http_build_url/zipball/93c273e77cb1edead0cf8bcf8cd2003428e74e37",
+                "reference": "93c273e77cb1edead0cf8bcf8cd2003428e74e37",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/http_build_url.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jake A. Smith",
+                    "email": "theman@jakeasmith.com"
+                }
+            ],
+            "description": "Provides functionality for http_build_url() to environments without pecl_http.",
+            "time": "2017-05-01T15:36:40+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2084,6 +2117,125 @@
                 "uuid"
             ],
             "time": "2020-03-29T20:13:32+00:00"
+        },
+        {
+            "name": "scotteh/php-dom-wrapper",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scotteh/php-dom-wrapper.git",
+                "reference": "54b064eb88e25887945a179b07097452b2f7af2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scotteh/php-dom-wrapper/zipball/54b064eb88e25887945a179b07097452b2f7af2e",
+                "reference": "54b064eb88e25887945a179b07097452b2f7af2e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-libxml": "*",
+                "ext-mbstring": "*",
+                "lib-libxml": ">=2.7.7",
+                "php": ">=7.1.0",
+                "symfony/css-selector": "^4.0 || ^5.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "^2.9",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DOMWrap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Scott",
+                    "email": "andrew@andrewscott.net.au"
+                }
+            ],
+            "description": "Simple DOM wrapper to select nodes using either CSS or XPath expressions and manipulate results quickly and easily.",
+            "homepage": "https://github.com/scotteh/php-dom-wrapper",
+            "keywords": [
+                "css",
+                "dom",
+                "html",
+                "parser",
+                "wrapper"
+            ],
+            "time": "2020-02-22T00:53:56+00:00"
+        },
+        {
+            "name": "scotteh/php-goose",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scotteh/php-goose.git",
+                "reference": "d60fd76471f1ccf71ba5e85cc1fb7e496bf130e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scotteh/php-goose/zipball/d60fd76471f1ccf71ba5e85cc1fb7e496bf130e4",
+                "reference": "d60fd76471f1ccf71ba5e85cc1fb7e496bf130e4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-libxml": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^6.0",
+                "jakeasmith/http_build_url": "1.0.*",
+                "lib-libxml": ">=2.7.7",
+                "php": ">=7.1.0",
+                "scotteh/php-dom-wrapper": "^1.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "^2.9",
+                "phpunit/phpunit": "^7.0 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Goose\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Scott",
+                    "email": "andrew@andrewscott.net.au"
+                }
+            ],
+            "description": "Readability / Html Content / Article Extractor & Web Scrapping library written in PHP",
+            "homepage": "https://github.com/scotteh/php-goose",
+            "keywords": [
+                "content",
+                "extractor",
+                "http",
+                "readability",
+                "scraper",
+                "scraping",
+                "text",
+                "website"
+            ],
+            "time": "2020-03-17T20:38:13+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4334,54 +4486,6 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2020-07-13T06:12:54+00:00"
-        },
-        {
-            "name": "tomaj/meta-scraper",
-            "version": "4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tomaj/meta-scraper.git",
-                "reference": "e9c3f134959e6bdd32a904550c169780a7ade661"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tomaj/meta-scraper/zipball/e9c3f134959e6bdd32a904550c169780a7ade661",
-                "reference": "e9c3f134959e6bdd32a904550c169780a7ade661",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~6.0",
-                "php": ">= 7.1.0"
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "dev-master",
-                "phpunit/phpunit": "~4.3",
-                "squizlabs/php_codesniffer": "~2.2"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tomas Majer",
-                    "email": "tomasmajer@gmail.com",
-                    "homepage": "http://www.tomaj.sk/"
-                }
-            ],
-            "description": "Page meta scraper library",
-            "keywords": [
-                "meta",
-                "page",
-                "sraper"
-            ],
-            "time": "2020-06-05T09:29:57+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -7122,7 +7226,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "scotteh/php-goose": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -11,7 +11,7 @@ class ItemDataProviderTest extends TestCase
      * A URL to test.
      * @var string
      */
-    private static $url = 'http://example.com/';
+    private static $url = 'http://chrisullyott.com/about';
 
     /**
      * Properties we need from a URL.

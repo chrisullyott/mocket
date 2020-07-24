@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Tomaj\Scraper\Scraper;
-use Tomaj\Scraper\Parser\OgParser;
+use Goose\Client as GooseClient;
+use Goose\Article as GooseArticle;
 
 class ItemDataProvider
 {
@@ -91,19 +91,9 @@ class ItemDataProvider
     public static function fetchData(string $url)
     {
         try {
-            $scraper = new Scraper();
-            $parsers = [new OgParser()];
-            $meta = $scraper->parseUrl($url, $parsers);
-
-            return static::siftData([
-                'site_name' => $meta->getOgSiteName(),
-                'title' => $meta->getTitle(),
-                'og_title' => $meta->getOgTitle(),
-                'description' => $meta->getDescription(),
-                'og_description' => $meta->getOgDescription(),
-                'image_url' => $meta->getOgImage(),
-                'keywords' => $meta->getKeywords()
-            ]);
+            $goose = new GooseClient();
+            $article = $goose->extractContent($url);
+            return static::parseGooseArticle($article);
         } catch (\Exception $e) {
             // Failed to fetch.
         }
@@ -116,30 +106,31 @@ class ItemDataProvider
      *
      * @return array
      */
-    private static function siftData(array $data)
+    private static function parseGooseArticle(GooseArticle $a)
     {
-        // Trim everything.
-        $data = array_map('trim', $data);
+        $d = [];
+        $m = $a->getOpenGraph();
 
-        // Fallback title.
-        if (!$data['title']) {
-            $data['title'] = $data['og_title'];
-        }
+        // Site name.
+        $d['site_name'] = !empty($m['site_name']) ? $m['site_name'] : '';
 
-        // Fallback description.
-        if (!$data['description']) {
-            $data['description'] = $data['og_description'];
-        }
+        // Title.
+        $d['title'] = !empty($m['title']) ? $m['title'] : $a->getTitle();
 
-        // Remove description if it repeats the title.
-        if ($data['title'] == $data['description']) {
-            $data['description'] = '';
-        }
+        // Description.
+        $d['description'] = !empty($m['description']) ? $m['description'] : $a->getMetaDescription();
+
+        // Remove the description if it repeats the title.
+        if ($d['title'] == $d['description']) $d['description'] = '';
 
         // Trim the title, removing the site name etc.
-        $data['title'] = static::trimTitle($data['title']);
+        $d['title'] = static::trimTitle($d['title']);
 
-        return $data;
+        // Image.
+        $d['image_url'] = $a->getTopImage() ? $a->getTopImage()->getImageSrc() : '';
+        if (!$d['image_url'] && !empty($m['image_url'])) $d['image_url'] = $m['image'];
+
+        return $d;
     }
 
     /**
